@@ -26,7 +26,7 @@ const MicroFrontendLayout = (props) => {
   return (
     <MicroFrontend
       name="microfrontend"
-      host="http://localhost:4000"
+      host="https://microfrontend-react.herokuapp.com"
       {...props}
     />
   );
