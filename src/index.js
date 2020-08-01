@@ -1,26 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 // render micro frontend function
-window.rendercreatereactapp = (containerId, history) => {
-  ReactDOM.render(
-    <App history={history}/>,
-    document.getElementById(containerId)
-  );
+window.render = (containerId, props) => {
+  ReactDOM.render(<App {...props} />, document.getElementById(containerId));
   serviceWorker.unregister();
 };
 
 // unmount micro frontend function
-window.unmountcreatereactapp = containerId => {
+window.unmount = (containerId) => {
   ReactDOM.unmountComponentAtNode(document.getElementById(containerId));
 };
 
 // Mount to root if it is not a micro frontend
-if (!document.getElementById('createreactapp-container')) {
-  ReactDOM.render(<App />, document.getElementById('root'));
+if (!document.getElementById("microfrontend-container")) {
+  ReactDOM.render(<App />, document.getElementById("root"));
 }
 
 // If you want your app to work offline and load faster, you can change
